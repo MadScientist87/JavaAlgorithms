@@ -1,6 +1,5 @@
 package com.Algorithms;
-import Algorithms.IsUnique;
-import Algorithms.IsPermutation;
+import Algorithms.Strings.IsPermutation;
 
 public class Main {
 
