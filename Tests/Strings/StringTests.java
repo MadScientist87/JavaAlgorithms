@@ -1,9 +1,8 @@
 package Strings;
 
-import Algorithms.Strings.IsPermutation;
 import org.junit.Assert;
 import org.junit.Test;
-import Algorithms.Strings.IsUnique;
+import Algorithms.Strings.*;
 
 public class StringTests {
     @Test
@@ -16,5 +15,11 @@ public class StringTests {
     public void IsWordAPermutationTest() {
         var isPermutation = IsPermutation.IsWordAPermutation("beta","beat");
         Assert.assertTrue(isPermutation);
+    }
+
+    @Test
+    public void HTMLEncodeURL() {
+        var encodedURL = URLify.HTMLEncodeSpaces("Mr John Smith    ",13);
+        Assert.assertEquals(encodedURL, "Mr%20John%20Smith");
     }
 }

@@ -1,11 +1,15 @@
 package com.Algorithms;
-import Algorithms.Strings.IsPermutation;
+import Algorithms.Strings.*;
 
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        var isunique = IsPermutation.IsWordAPermutation("betz", "beat");
-        System.out.println(isunique);
+         //PalindromePermutation.GeneratePermutation("ABC",0, 2);
+
+      //var answer =  PalindromePermutation.IsPalindrome("taco cat");
+        var answer =  PalindromePermutation.GetListOfPalindromes("ABC",0, 2);
+       //System.out.println(answer);
+
     }
 }
