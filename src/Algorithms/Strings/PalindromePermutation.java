@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 public class PalindromePermutation {
 
-    public static HashSet<String> h = new HashSet<String>();
+    public static HashSet<String> h = new HashSet<>();
     public static ArrayList<String> GetListOfPalindromes(String phrase, int l, int r)
     {
         phrase = phrase.toLowerCase();

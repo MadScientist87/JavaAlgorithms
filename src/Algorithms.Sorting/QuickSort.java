@@ -20,8 +20,8 @@ public class QuickSort {
            value is greater than the pivot then increment j. i + 1 will end up being where the
            pivot should be located in the array.
          */
-        for(int j = low; j < high; j++ ){
-            if(array[j] < pivot){
+        for(int j = low; j <= high; j++ ){
+            if(array[j] <= pivot){
                 i++;
                 int temp = array[i];
                 array[i]  = array[j];
@@ -29,12 +29,7 @@ public class QuickSort {
             }
         }
 
-        // One last swap
-        int temp = array[i + 1];
-        array[i + 1]  = array[high];
-        array[high] = temp;
-
-        return i + 1;
+        return i;
     }
 
 }

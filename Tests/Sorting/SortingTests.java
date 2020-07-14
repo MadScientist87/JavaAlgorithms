@@ -14,8 +14,8 @@ public class SortingTests {
 
     @Test
     public void TestQuickSort() {
-        var array = new int [] { 10, 80,30,90,40,50,70};
+        var array = new int [] { 100, 80,30,90,40,50,70};
         var sortedArray = QuickSort.Sort(array,0,array.length-1);
-        Assert.assertArrayEquals(new int []{10, 30,40,50,70,80,90}, sortedArray );
+        Assert.assertArrayEquals(new int []{30,40,50,70,80,90,100}, sortedArray );
     }
 }
