@@ -18,4 +18,11 @@ public class SortingTests {
         var sortedArray = QuickSort.Sort(array,0,array.length-1);
         Assert.assertArrayEquals(new int []{30,40,50,70,80,90,100}, sortedArray );
     }
+
+    @Test
+    public void TestMergeSort() {
+        var array = new int [] { 100, 80,30};
+        var sortedArray = MergeSort.Sort(array,0,array.length-1);
+        Assert.assertArrayEquals(new int []{30,80,100}, sortedArray );
+    }
 }

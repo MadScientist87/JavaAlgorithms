@@ -21,12 +21,11 @@ public class PalindromePermutation {
         if (l == r)
             h.add(phrase);
 
-        for (int i = l; i <= r; i++)
-        {
-            phrase = Swap(phrase, l,i);
-            GeneratePermutation(phrase, l+1,r);
-            phrase = Swap(phrase, l,i);
-        }
+            for (int i = l; i <= r; i++) {
+                phrase = Swap(phrase, l, i);
+                GeneratePermutation(phrase, l + 1, r);
+                phrase = Swap(phrase, l, i);
+            }
     }
 
     public static boolean IsPalindrome(String phrase){
