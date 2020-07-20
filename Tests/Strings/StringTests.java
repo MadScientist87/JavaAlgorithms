@@ -61,4 +61,12 @@ public class StringTests {
         Assert.assertEquals(answer, "abbc");
     }
 
+    @Test
+    public void RotateMatrixTest() {
+
+        int[][] matrix = { { 1, 2,3 }, { 4,5, 6 },{7,8,9} };
+        var rotatedMatrix = RotateMatrix.Rotate(matrix,3);
+        Assert.assertArrayEquals(new int [][]{ { 7, 4,1 }, { 8,5, 2 },{9,6,3} }, rotatedMatrix);
+    }
+
 }

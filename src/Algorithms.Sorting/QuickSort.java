@@ -12,6 +12,7 @@ public class QuickSort {
     }
 
     public static int Partition(int [] array, int low, int high){
+
         int i = low - 1;
         int pivot = array[high]; // Set Pivot as the last value in array
 
