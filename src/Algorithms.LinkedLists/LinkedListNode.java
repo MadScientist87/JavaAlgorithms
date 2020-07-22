@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class LinkedListNode {
     public LinkedListNode next = null;
-    int data;
+    public int data;
 
     public LinkedListNode(int d) {
         data = d;

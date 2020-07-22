@@ -1,6 +1,8 @@
 package Algorithms.LinkedLists;
 
 public class KthToLast {
+
+    static int kthCounter = 0;
     public static int GetKthToLast(LinkedListNode head, int k) {
         if (head.next == null)
             return 0;
@@ -16,11 +18,25 @@ public class KthToLast {
         return index;
     }
 
+    public static LinkedListNode GetKthToLastRecursive(LinkedListNode head, int k) {
+        if (head.next == null)
+            return null;
+
+        LinkedListNode node = GetKthToLastRecursive(head.next, k);
+
+        kthCounter++;
+        if (kthCounter == k) {
+           return head;
+        }
+
+        return node;
+    }
+
     public static LinkedListNode GetKthToLastIterative(LinkedListNode head, int k) {
         LinkedListNode p1 = head;
         LinkedListNode p2 = head;
 
-        for(int i = 0;i < k; i++)
+        for(int i = 0;i <= k; i++)
         {
             if(p1 == null) return null;
             p1 = p1.next;
@@ -31,8 +47,7 @@ public class KthToLast {
             p1 = p1.next;
             p2 =p2.next;
         }
-        assert p2 != null;
-        System.out.println(p2.data);
+
         return p2;
 
     }
