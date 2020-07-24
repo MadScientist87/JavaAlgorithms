@@ -163,6 +163,6 @@ public class ThreeInOneStack<T> {
     }
 
     public boolean isEmpty(int stackNumber) {
-        return backingArray[stackInfo[stackNumber].startIndex] == null;
+        return stackInfo[stackNumber].numberOfCurrentItems == 0;
     }
 }
