@@ -80,8 +80,8 @@ public class LinkedListTests {
         // headTwo.next.next.next = new LinkedListNode(1);
 
         var newList = SumLinkedLists.sum(head, headTwo);
-        var array = LinkedListNode.GetData(head);
-        System.out.println();
+        var array = LinkedListNode.GetData(newList);
+        Assert.assertArrayEquals(array,new int[] {2,1,9});
 
     }
 
@@ -99,8 +99,8 @@ public class LinkedListTests {
 
 
         var newList = SumLinkedLists.addHelper(head, headTwo);
-        var array = LinkedListNode.GetData(head);
-        System.out.println();
+        var array = LinkedListNode.GetData(newList);
+        Assert.assertArrayEquals(array,new int[] {1,9,1,2});
 
     }
 
@@ -109,13 +109,90 @@ public class LinkedListTests {
 
         var head = new LinkedListNode(1);
         head.next = new LinkedListNode(2);
-        head.next.next = new LinkedListNode(3);
+        head.next.next = new LinkedListNode(2);
         head.next.next.next = new LinkedListNode(1);
 
 
         var isPalindrome = LinkedListPalindrome.isPalindrome(head);
-        var array = LinkedListNode.GetData(head);
-        System.out.println();
+        Assert.assertTrue(isPalindrome);
+    }
+
+    @Test
+    public void IntersectionOfLinkedList() {
+
+        var head = new LinkedListNode(1);
+        head.next = new LinkedListNode(2);
+        head.next.next = new LinkedListNode(3);
+        head.next.next.next = new LinkedListNode(4);
+
+
+        var headTwo = new LinkedListNode(1);
+        headTwo.next = new LinkedListNode(2);
+        headTwo.next.next = head.next.next;
+
+        var intersectingNode = LinkedListIntersection.doListsIntersect(head, headTwo);
+
+        // Node should equal 3 by reference. The same node from list one
+        Assert.assertEquals(intersectingNode, head.next.next);
+
+    }
+
+    @Test
+    //This example is where the lists do not intersect
+    public void IntersectionOfLinkedListExampleTwo() {
+
+        var head = new LinkedListNode(1);
+        head.next = new LinkedListNode(2);
+        head.next.next = new LinkedListNode(3);
+        head.next.next.next = new LinkedListNode(4);
+
+
+        var headTwo = new LinkedListNode(1);
+        headTwo.next = new LinkedListNode(2);
+        headTwo.next.next = new LinkedListNode(3);
+
+        var intersectingNode = LinkedListIntersection.doListsIntersect(head, headTwo);
+
+        // Node should return null as the tail does not match
+        Assert.assertNull(intersectingNode);
+
+    }
+
+    @Test
+    //This example is where the lists do not intersect
+    public void IntersectionOfLinkedListExampleThree() {
+
+        var head = new LinkedListNode(1);
+        head.next = new LinkedListNode(2);
+        head.next.next = new LinkedListNode(3);
+        head.next.next.next = new LinkedListNode(4);
+
+
+        var headTwo = new LinkedListNode(1);
+        headTwo.next = new LinkedListNode(2);
+        headTwo.next.next = new LinkedListNode(3);
+        headTwo.next.next.next = new LinkedListNode(4);
+        var intersectingNode = LinkedListIntersection.doListsIntersect(head, headTwo);
+
+        // Node should return null as we have equal but non intersecting lists
+        Assert.assertNull(intersectingNode);
+
+    }
+
+
+    @Test
+    public void LoopDetectionLinkedList() {
+
+        var head = new LinkedListNode(1);
+        head.next = new LinkedListNode(2);
+        head.next.next = new LinkedListNode(3);
+        head.next.next.next = new LinkedListNode(4);
+        head.next.next.next.next = head.next.next;
+
+
+        var node = LinkedListLoopDetection.findBeginning(head);
+
+        Assert.assertEquals(node, head.next.next);
 
     }
 }
