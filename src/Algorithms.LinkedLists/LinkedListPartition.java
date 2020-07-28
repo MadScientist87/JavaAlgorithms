@@ -1,13 +1,13 @@
 package Algorithms.LinkedLists;
 
 public class LinkedListPartition {
-    public static LinkedListNode partition(LinkedListNode node, int x)
+    public static LinkedListNode<Integer> partition(LinkedListNode<Integer> node, int x)
     {
-        LinkedListNode head = node;
-        LinkedListNode tail = node;
+        LinkedListNode<Integer> head = node;
+        LinkedListNode<Integer> tail = node;
 
         while(node != null) {
-            LinkedListNode next = node.next;
+            LinkedListNode<Integer> next = node.next;
 
             if (node.data < x)
             {

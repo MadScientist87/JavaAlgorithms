@@ -2,11 +2,11 @@ package Algorithms.LinkedLists;
 
 public class SumLinkedLists {
     static int carry = 0;
-    static LinkedListNode head = null;
+    static LinkedListNode<Integer> head = null;
 
-    public static LinkedListNode sum(LinkedListNode headOne, LinkedListNode headTwo) {
-        LinkedListNode answer = null;
-        LinkedListNode answerHead = null;
+    public static LinkedListNode<Integer> sum(LinkedListNode<Integer> headOne, LinkedListNode<Integer> headTwo) {
+        LinkedListNode<Integer> answer = null;
+        LinkedListNode<Integer> answerHead = null;
         int carry = 0;
 
         while (headOne != null || headTwo != null) {
@@ -27,10 +27,10 @@ public class SumLinkedLists {
             }
 
             if (answer == null) {
-                answer = new LinkedListNode(sum);
+                answer = new LinkedListNode<>(sum);
                 answerHead = answer;
             } else {
-                answer.next = new LinkedListNode(sum);
+                answer.next = new LinkedListNode<>(sum);
                 answer = answer.next;
             }
 
@@ -42,7 +42,7 @@ public class SumLinkedLists {
         return answerHead;
     }
 
-    public static LinkedListNode addHelper(LinkedListNode headOne, LinkedListNode headTwo) {
+    public static LinkedListNode<Integer> addHelper(LinkedListNode<Integer> headOne, LinkedListNode<Integer> headTwo) {
         int listOneLength = getLength(headOne);
         int listTwoLength = getLength(headTwo);
         int diff = Math.abs(listOneLength - listTwoLength);
@@ -55,7 +55,7 @@ public class SumLinkedLists {
 
     }
 
-    public static LinkedListNode add(LinkedListNode headOne, LinkedListNode headTwo) {
+    public static LinkedListNode<Integer> add(LinkedListNode<Integer> headOne, LinkedListNode<Integer> headTwo) {
         if (headOne == null || headTwo == null)
             return null;
 
@@ -76,9 +76,9 @@ public class SumLinkedLists {
         }
 
         if (head == null) {
-            head = new LinkedListNode(sum);
+            head = new LinkedListNode<>(sum);
         } else {
-            var node = new LinkedListNode(sum);
+            var node = new LinkedListNode<>(sum);
             node.next = head;
             head = node;
         }
@@ -86,16 +86,16 @@ public class SumLinkedLists {
         return head;
     }
 
-    public static int getLength(LinkedListNode head) {
+    public static int getLength(LinkedListNode<Integer> head) {
         if (head == null)
             return 0;
 
         return getLength(head.next) + 1;
     }
 
-    public static LinkedListNode padList(LinkedListNode head, int n) {
+    public static LinkedListNode<Integer> padList(LinkedListNode<Integer> head, int n) {
         while (n > 0) {
-            var node = new LinkedListNode(0);
+            var node = new LinkedListNode<>(0);
             node.next = head;
             head = node;
             n--;

@@ -3,7 +3,7 @@ package Algorithms.LinkedLists;
 public class KthToLast {
 
     static int kthCounter = 0;
-    public static int GetKthToLast(LinkedListNode head, int k) {
+    public static int GetKthToLast(LinkedListNode<Integer> head, int k) {
         if (head.next == null)
             return 0;
 
@@ -18,11 +18,11 @@ public class KthToLast {
         return index;
     }
 
-    public static LinkedListNode GetKthToLastRecursive(LinkedListNode head, int k) {
+    public static LinkedListNode<Integer> GetKthToLastRecursive(LinkedListNode head, int k) {
         if (head.next == null)
             return null;
 
-        LinkedListNode node = GetKthToLastRecursive(head.next, k);
+        LinkedListNode<Integer> node = GetKthToLastRecursive(head.next, k);
 
         kthCounter++;
         if (kthCounter == k) {
@@ -32,9 +32,9 @@ public class KthToLast {
         return node;
     }
 
-    public static LinkedListNode GetKthToLastIterative(LinkedListNode head, int k) {
-        LinkedListNode p1 = head;
-        LinkedListNode p2 = head;
+    public static LinkedListNode<Integer> GetKthToLastIterative(LinkedListNode<Integer> head, int k) {
+        LinkedListNode<Integer> p1 = head;
+        LinkedListNode<Integer> p2 = head;
 
         for(int i = 0;i <= k; i++)
         {

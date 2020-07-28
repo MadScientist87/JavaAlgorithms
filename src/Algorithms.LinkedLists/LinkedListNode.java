@@ -1,19 +1,19 @@
 package Algorithms.LinkedLists;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
-public class LinkedListNode {
-    public LinkedListNode next = null;
-    public int data;
+public class LinkedListNode<T> {
+    public LinkedListNode<T> next = null;
+    public T data;
 
-    public LinkedListNode(int d) {
+    public LinkedListNode(T d) {
         data = d;
     }
 
-    public static int[] GetData(LinkedListNode node)
+    public Object[] GetData(LinkedListNode<T> node)
     {
-        var array = new ArrayList<Integer>();
-        var head = node;
+        var array = new ArrayList<T>();
 
         while (node.next != null)
         {
@@ -23,6 +23,6 @@ public class LinkedListNode {
         // Get tail data
         array.add(node.data);
 
-        return array.stream().mapToInt(i -> i).toArray();
+        return  array.toArray(new Object[0]);
     }
 }

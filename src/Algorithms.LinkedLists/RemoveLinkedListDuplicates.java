@@ -3,7 +3,7 @@ package Algorithms.LinkedLists;
 import java.util.HashSet;
 
 public class RemoveLinkedListDuplicates {
-    public static LinkedListNode RemoveDuplicates(LinkedListNode node)
+    public static LinkedListNode<Integer> RemoveDuplicates(LinkedListNode<Integer> node)
     {
         var head = node;
         HashSet<Integer> hs = new HashSet<>();
