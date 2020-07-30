@@ -16,7 +16,7 @@ public class LinkedListTests {
         head.next.next.next.next = new LinkedListNode<>(4);
 
         LinkedListNode<Integer> list = RemoveLinkedListDuplicates.RemoveDuplicates(head);
-        var array =  list.GetData(list);
+        var array = list.GetData(list);
 
         Assert.assertArrayEquals(new Integer[]{1, 2, 3, 4}, array.clone());
     }
@@ -31,11 +31,11 @@ public class LinkedListTests {
 
         LinkedListNode<Integer> list = KthToLast.GetKthToLastRecursive(head, 1);
         if (list != null)
-            Assert.assertEquals((Integer)3, list.data);
+            Assert.assertEquals((Integer) 3, list.data);
 
         list = KthToLast.GetKthToLastIterative(head, 1);
         if (list != null)
-            Assert.assertEquals((Integer)3, list.data);
+            Assert.assertEquals((Integer) 3, list.data);
 
         int index = KthToLast.GetKthToLast(head, 1);
         Assert.assertEquals(4, index);
@@ -66,7 +66,7 @@ public class LinkedListTests {
         head.next.next.next.next.next.next = new LinkedListNode<>(5);
 
         head = LinkedListPartition.partition(head, 5);
-        var array =  head.GetData(head);
+        var array = head.GetData(head);
         System.out.println();
         //Assert.assertEquals(4,index);
     }
@@ -84,7 +84,7 @@ public class LinkedListTests {
 
         var newList = SumLinkedLists.sum(head, headTwo);
         var array = newList.GetData(newList);
-        Assert.assertArrayEquals(array.clone(),new Integer[] {2,1,9});
+        Assert.assertArrayEquals(array.clone(), new Integer[]{2, 1, 9});
 
     }
 
@@ -103,7 +103,7 @@ public class LinkedListTests {
 
         var newList = SumLinkedLists.addHelper(head, headTwo);
         var array = newList.GetData(newList);
-        Assert.assertArrayEquals(array,new Integer[] {1,9,1,2});
+        Assert.assertArrayEquals(array, new Integer[]{1, 9, 1, 2});
 
     }
 
@@ -197,5 +197,18 @@ public class LinkedListTests {
 
         Assert.assertEquals(node, head.next.next);
 
+    }
+
+    @Test
+    public void reverse() {
+
+        var head = new LinkedListNode<>(1);
+        head.next = new LinkedListNode<>(2);
+        head.next.next = new LinkedListNode<>(3);
+        head.next.next.next = new LinkedListNode<>(4);
+
+        var node = ReverseList.reverse(head);
+
+        Assert.assertArrayEquals(new Integer[]{4, 3, 2, 1}, node.GetData(node));
     }
 }
