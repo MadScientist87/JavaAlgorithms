@@ -5,6 +5,7 @@ import org.junit.Test;
 import Algorithms.LinkedLists.*;
 
 import java.util.Arrays;
+import java.util.Hashtable;
 
 public class LinkedListTests {
     @Test
@@ -201,7 +202,6 @@ public class LinkedListTests {
 
     @Test
     public void reverse() {
-
         var head = new LinkedListNode<>(1);
         head.next = new LinkedListNode<>(2);
         head.next.next = new LinkedListNode<>(3);

@@ -80,10 +80,134 @@ public class GraphsAndTreesTests {
 
         ValidateBST validateBST = new ValidateBST();
         //var answer = validateBST.isValidBST(node);
-       validateBST.isValidBSTRecursive(node);
+        validateBST.isValidBSTRecursive(node);
         var answer = validateBST.isValid;
 
-                System.out.println();
+        System.out.println();
     }
 
+    @Test
+    public void InOrderSuccessor() {
+        TreeNode root = null, temp = null;
+        root = TreeNode.insert(root, 20);
+        root = TreeNode.insert(root, 8);
+        root = TreeNode.insert(root, 22);
+        root = TreeNode.insert(root, 4);
+        root = TreeNode.insert(root, 12);
+        root = TreeNode.insert(root, 10);
+        root = TreeNode.insert(root, 14);
+        temp = root.left.right.left;
+
+        var successor = Algorithms.Graphs.InOrderSuccessor.getInOrderSuccessor(temp);
+        Assert.assertEquals(successor.val, 12);
+    }
+
+    @Test
+    public void BuildOrder() {
+        BuildOrder buildOrder = new BuildOrder();
+        // a is dependent on d (d needs to be built before a) d has two children a and b.
+        var graph = buildOrder.buildGraph(new String[]{"a", "b", "c", "d", "e", "f"}, new String[][]{{"d", "a"}, {"b", "f"}, {"d", "b"}, {"a", "f"}, {"c", "d"}});
+        var order1 = buildOrder.orderProjects(graph.getNodes());
+        //var order = buildOrder.rundfs(graph.getNodes());
+
+        System.out.println();
+    }
+
+    @Test
+    public void firstCommonAncestor() {
+        TreeNode node = new TreeNode(1);
+        node.left = new TreeNode(2);
+        node.right = new TreeNode(3);
+        node.left.left = new TreeNode(4);
+        node.left.left.left = new TreeNode(7);
+        node.left.left.right = new TreeNode(8);
+        node.right.right = new TreeNode(5);
+        node.right.right.left = new TreeNode(9);
+        node.right.right.right = new TreeNode(10);
+
+        var ancestor = Algorithms.Graphs.FirstCommonAncestor.findFirstCommonAncestor(node, 9, 10);
+        Assert.assertEquals(ancestor, node.right.right);
+    }
+
+    @Test
+    public void firstCommonAncestorRecursive() {
+        TreeNode node = new TreeNode(1);
+        node.left = new TreeNode(2);
+        node.right = new TreeNode(3);
+        node.left.left = new TreeNode(4);
+        node.left.left.left = new TreeNode(7);
+        node.left.left.right = new TreeNode(8);
+        node.right.right = new TreeNode(5);
+        node.right.right.left = new TreeNode(9);
+        node.right.right.right = new TreeNode(10);
+
+        var ancestor = Algorithms.Graphs.FirstCommonAncestor.lowestCommonAncestor(node, node.left.left.left, node.left.left.right);
+        Assert.assertEquals(ancestor, node.left.left);
+    }
+
+    @Test
+    public void BSTSequences() {
+        TreeNode node = new TreeNode(2);
+        node.left = new TreeNode(1);
+        node.right = new TreeNode(3);
+        node.right.right = new TreeNode(4);
+
+        var result = Algorithms.Graphs.BSTSequences.allSequences2(node);
+        System.out.println();
+        //Assert.assertEquals(ancestor, node.right.right);
+    }
+
+    @Test
+    public void checkSubtree() {
+        TreeNode node = new TreeNode(1);
+        node.left = new TreeNode(2);
+        node.right = new TreeNode(3);
+        node.left.left = new TreeNode(4);
+        node.left.left.left = new TreeNode(7);
+        node.left.left.right = new TreeNode(8);
+        node.right.right = new TreeNode(5);
+        node.right.right.left = new TreeNode(9);
+        node.right.right.right = new TreeNode(10);
+
+        TreeNode nodeTwo = new TreeNode(5);
+       nodeTwo.left = new TreeNode(9);
+        nodeTwo.right = new TreeNode(10);
+
+        var result = Algorithms.Graphs.CheckSubtree.containsTree(node,nodeTwo);
+        System.out.println();
+        //Assert.assertEquals(ancestor, node.right.right);
+    }
+
+
+    @Test
+    public void getRandomTreenode() {
+
+                RandomTreeNode node = new RandomTreeNode(1);
+        node.insert(3);
+        node.insert(5);
+        node.insert(7);
+        var randomNode = node.getRandom();
+
+        System.out.println();
+        //Assert.assertEquals(ancestor, node.right.right);
+    }
+
+
+    @Test
+    public void checkPathsWithSum() {
+        TreeNode node = new TreeNode(1);
+        node.left = new TreeNode(2);
+        node.right = new TreeNode(3);
+        node.left.left = new TreeNode(4);
+        node.left.left.left = new TreeNode(7);
+        node.left.left.right = new TreeNode(8);
+        node.right.right = new TreeNode(5);
+        node.right.right.left = new TreeNode(9);
+        node.right.right.right = new TreeNode(10);
+
+
+        var result = Algorithms.Graphs.PathsWithSum.getPathsFromNode(node,7);
+
+        //Assert.assertEquals(ancestor, node.right.right);
+    }
 }
