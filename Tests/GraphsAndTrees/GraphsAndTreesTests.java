@@ -1,8 +1,15 @@
 package GraphsAndTrees;
 
 import Algorithms.Graphs.*;
+import Algorithms.Graphs.ShortestPath.DijkstraShortestPath;
+import Algorithms.Graphs.ShortestPath.MinimumSpanningTree;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 
 public class GraphsAndTreesTests {
     @Test
@@ -210,4 +217,74 @@ public class GraphsAndTreesTests {
 
         //Assert.assertEquals(ancestor, node.right.right);
     }
+
+    @Test
+    public void BuildTreeFromInorderAndPreOrder() {
+       int[] preOrder = new int[]{3,9, 20,15,7};
+       int[] inOrder = new int[]{9,3,15,20,7};
+        Algorithms.Graphs.BuildTreeFromPreOrderAndInOrder build = new Algorithms.Graphs.BuildTreeFromPreOrderAndInOrder();
+
+        var result = build.buildTree(preOrder,inOrder);
+
+       System.out.println();
+    }
+
+    @Test
+    public void DijkstraShortestPath() {
+        Algorithms.Graphs.ShortestPath.Graph graph = new Algorithms.Graphs.ShortestPath.Graph();
+        graph.addEdge("A","B",3);
+        graph.addEdge("A","F",1);
+        graph.addEdge("A","C",2);
+        graph.addEdge("C","D",3);
+        Algorithms.Graphs.ShortestPath.DijkstraShortestPath dijkstraShortestPath = new DijkstraShortestPath();
+        Algorithms.Graphs.ShortestPath.GraphNode startNode = graph.findNodeByKey("A");
+        dijkstraShortestPath.computeShortestPath( startNode,graph.nodes);
+
+        System.out.println();
+    }
+
+    @Test
+    public void MinimumSpanningTree() {
+        Algorithms.Graphs.ShortestPath.Graph graph = new Algorithms.Graphs.ShortestPath.Graph();
+        graph.addEdge("A","D",1);
+        graph.addEdge("A","B",3);
+        graph.addEdge("B","C",1);
+        graph.addEdge("B","D",3);
+        graph.addEdge("C","D",1);
+        graph.addEdge("D","E",6);
+        graph.addEdge("C","E",5);
+        graph.addEdge("C","F",4);
+        graph.addEdge("E","F",2);
+        Algorithms.Graphs.ShortestPath.MinimumSpanningTree minimumSpanningTree = new MinimumSpanningTree();
+        Algorithms.Graphs.ShortestPath.GraphNode startNode = graph.findNodeByKey("A");
+       var result = minimumSpanningTree.computeMinimumSpanningTree( startNode,graph.nodes);
+
+        System.out.println();
+    }
+
+    @Test
+    public void StronglyConnectedComponents() {
+
+        Algorithms.Graphs.StronglyConnectedComponents build = new Algorithms.Graphs.StronglyConnectedComponents();
+        List<List<Integer>> list = new ArrayList<>();
+        list.add(new ArrayList<>(Arrays.asList(0,1)));
+        list.add(new ArrayList<>(Arrays.asList(0,2)));
+        list.add(new ArrayList<>(Arrays.asList(1,3)));
+        list.add(new ArrayList<>(Arrays.asList(2,3)));
+        list.add(new ArrayList<>(Arrays.asList(2,5)));
+        list.add(new ArrayList<>(Arrays.asList(5,6)));
+        list.add(new ArrayList<>(Arrays.asList(3,4)));
+        var result = build.criticalConnections(7,list);
+        HashSet<Integer> essentialRouters = new HashSet<>();
+        // Answer to amazon question
+        for(int i = 0; i < result.size(); i++){
+            for(Integer node:result.get(i)){
+                if(build.graph[node].size() > 1)
+                    essentialRouters.add(node);
+            }
+        }
+
+        System.out.println();
+    }
+
 }

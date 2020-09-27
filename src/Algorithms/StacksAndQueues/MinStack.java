@@ -2,7 +2,6 @@ package Algorithms.StacksAndQueues;
 
 import Algorithms.LinkedLists.LinkedListNode;
 
-import java.util.HashSet;
 import java.util.Hashtable;
 
 public class MinStack<T> {

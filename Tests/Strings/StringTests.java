@@ -69,4 +69,15 @@ public class StringTests {
         Assert.assertArrayEquals(new int [][]{ { 7, 4,1 }, { 8,5, 2 },{9,6,3} }, rotatedMatrix);
     }
 
+
+    @Test
+    public void kmp() {
+
+        String str = "abcxabcdabcdabcy";
+        String subString = "abcdabcy";
+        KMP ss = new KMP();
+        boolean result = ss.KMP(str.toCharArray(), subString.toCharArray());
+        System.out.print(result);
+    }
+
 }

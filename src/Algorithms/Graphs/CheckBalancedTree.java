@@ -47,4 +47,5 @@ public class CheckBalancedTree {
             return Math.max(leftHeight, rightHeight) + 1;
 
     }
+    
 }

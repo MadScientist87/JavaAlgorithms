@@ -1,5 +1,7 @@
 package Algorithms.LinkedLists;
 
+import java.util.LinkedList;
+
 public class ReverseList {
 
     public static LinkedListNode<Integer> reverse(LinkedListNode<Integer> head)

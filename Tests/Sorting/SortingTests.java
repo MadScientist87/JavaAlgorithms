@@ -25,4 +25,21 @@ public class SortingTests {
         var sortedArray = MergeSort.Sort(array,0,array.length-1);
         Assert.assertArrayEquals(new int []{30,80,100}, sortedArray );
     }
+
+    @Test
+    public void sortedMerge() {
+        var a = new int [] { 1,4,6,0,0,0};
+        var b = new int [] { 2,3,5};
+        var sortedArray = SortedMerge.merge(a,b,3,3);
+        Assert.assertArrayEquals(new int []{1,2,3,4,5,6}, sortedArray );
+    }
+
+    @Test
+    public void groupAnagrams() {
+        var a = new String [] {"me", "part","race","acre","care"};
+        var sortedArray = GroupAnaGrams.sort(a);
+        //GroupAnaGrams.convertToInt("1");
+        System.out.println();
+        //Assert.assertArrayEquals(new int []{1,2,3,4,5,6}, sortedArray );
+    }
 }
