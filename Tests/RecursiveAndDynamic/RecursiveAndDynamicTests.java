@@ -1,6 +1,7 @@
 package RecursiveAndDynamic;
 
 import Algorithms.RecursiveAndDynamic.*;
+import Algorithms.RecursiveAndDynamic.GrokkingClass.*;
 import Algorithms.RecursiveAndDynamic.UdemyClass.*;
 import org.junit.Assert;
 import org.junit.Test;
@@ -83,7 +84,7 @@ public class RecursiveAndDynamicTests {
     @Test
     public void makeChange() {
 
-        var answer = MakeChange.coinChange(new int[]{25, 10, 5, 1}, 30);
+        var answer = MakeChange.coinChange(new int[]{1,2,5}, 11);
         System.out.println();
     }
 
@@ -165,6 +166,70 @@ public class RecursiveAndDynamicTests {
         list.add("leet");
         list.add("code");
         boolean answer = CombinationsOfSetK.wordBreak("leetcode", list);
+        System.out.println();
+    }
+
+    @Test
+    public void LongestIncreasingSubsequence() {
+
+        int answer = LongestIncreasingSubsequence.lengthOfLIS(new int[]{2,7,3,8,12,-1});
+        System.out.println();
+    }
+
+    @Test
+    public void canJump() {
+
+        boolean answer = CanJump.canJump(new int[] {2,3,1,1, 4});
+        System.out.println();
+    }
+
+    @Test
+    public void minCostStoneJump() {
+
+        int answer = MinCostToJumpOverStones.minCostToJumpOverStones(new int[] {0,20,30,40,25,15,20,28},3);
+        System.out.println();
+    }
+
+    @Test
+    public void knapSack() {
+        int[] profit = new int[]{1,6,10,16};
+        int[] weight = new int[]{1, 2, 3,5};
+
+        int answer = KnapSack.computeKnapSackOptimizedTwo(profit,weight,6);
+        System.out.println();
+    }
+
+    @Test
+    public void equalSubsetPartition() {
+        int[] nums = new int[]{2,1,3,4};
+        boolean answer = EqualSubsetPartition.canPartitionOptimizedTwo(nums);
+        System.out.println();
+    }
+
+    @Test
+    public void isSubset() {
+        int[] nums = new int[]{1,2,3,7};
+
+        boolean answer = SubsetSum.isSubSetOptimizedBottomUp(nums, 6);
+        System.out.println();
+    }
+
+    @Test
+    public void minSubset() {
+        int[] nums = new int[]{1,3,100,4};
+        int sum = 0;
+        for(int num:nums){
+            sum+=num;
+        }
+        int answer = MinSubSetSum.canPartitionOptimizedTwo(nums);
+        System.out.println();
+    }
+
+    @Test
+    public void countOfSubset() {
+        int[] nums = new int[]{1,2,7,1,5};
+
+        int answer = CountOfSubset.countOfSubset(nums, 9);
         System.out.println();
     }
 }

@@ -1,5 +1,6 @@
 package StackAndQueues;
 
+import Algorithms.StacksAndQueues.LongestValidParentheses;
 import Algorithms.StacksAndQueues.MinStack;
 import Algorithms.StacksAndQueues.StackSort;
 import Algorithms.StacksAndQueues.ThreeInOneStack;
@@ -77,6 +78,11 @@ public class StackAndQueuesTests {
                 .map(Integer::valueOf)
                 .toArray(Integer[]::new);
        Assert.assertArrayEquals(new Integer[]{9,12,17}, integerArray);
+    }
+    @Test
+    public void longestValidParentheses() {
+        var answer = LongestValidParentheses.longestValidParentheses("))()()((()())");
+        System.out.println();
     }
 }
 

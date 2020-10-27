@@ -1,6 +1,7 @@
 package Algorithms.RecursiveAndDynamic;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MakeChange {
@@ -39,4 +40,5 @@ public class MakeChange {
         count[rem - 1] = (min == Integer.MAX_VALUE) ? -1 : min;
         return count[rem - 1];
     }
+
 }

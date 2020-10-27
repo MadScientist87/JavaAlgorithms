@@ -42,4 +42,11 @@ public class SortingTests {
         System.out.println();
         //Assert.assertArrayEquals(new int []{1,2,3,4,5,6}, sortedArray );
     }
+
+    @Test
+    public void pancakeSort() {
+        var a = new String [] {"me", "part","race","acre","care"};
+        var answer = PancakeSort.pancakeSort(new int[]{2,1,4,3});
+        System.out.println();
+    }
 }

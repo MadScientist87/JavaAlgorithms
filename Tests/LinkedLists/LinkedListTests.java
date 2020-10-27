@@ -213,4 +213,17 @@ public class LinkedListTests {
 
     }
 
+    @Test
+    public void LRUCache() {
+        int capacity = 2;
+        LRUCache obj = new LRUCache(capacity);
+        obj.put(1,1);
+        obj.put(2,2);
+         var test = obj.get(1);
+        obj.put(3,3);
+        var test2 = obj.get(2);
+
+        //Assert.assertArrayEquals(new Integer[]{4, 3, 2, 1}, node.GetData(node));
+
+    }
 }
