@@ -1,9 +1,6 @@
 package StackAndQueues;
 
-import Algorithms.StacksAndQueues.LongestValidParentheses;
-import Algorithms.StacksAndQueues.MinStack;
-import Algorithms.StacksAndQueues.StackSort;
-import Algorithms.StacksAndQueues.ThreeInOneStack;
+import Algorithms.StacksAndQueues.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -82,6 +79,12 @@ public class StackAndQueuesTests {
     @Test
     public void longestValidParentheses() {
         var answer = LongestValidParentheses.longestValidParentheses("))()()((()())");
+        System.out.println();
+    }
+
+    @Test
+    public void sumOfSubarrayRanges() {
+        var answer = SumOfSubarrayRanges.subArrayRanges(new int[] {5,4});
         System.out.println();
     }
 }

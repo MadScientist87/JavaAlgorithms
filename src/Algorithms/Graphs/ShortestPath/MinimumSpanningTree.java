@@ -21,12 +21,15 @@ public class MinimumSpanningTree {
 
         while (!minHeap.isEmpty()) {
             GraphNode current = minHeap.poll();
+            // We should have calculated all the edges for this node already so we can
+            // get the edge name e.g a->b and add that to the results.
             if (nodeEdgeMap.containsKey(current))
                 results.add(nodeEdgeMap.get(current).name);
 
             for (Edge edge : current.edges) {
                 GraphNode adjacent = edge.adjacentVertex;
 
+                // cycle detection
                 if (!minHeap.contains(adjacent))
                     continue;
 

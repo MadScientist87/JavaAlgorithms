@@ -80,4 +80,22 @@ public class StringTests {
         System.out.print(result);
     }
 
+    @Test
+    public void ReOrganizeString() {
+
+        String str = "aba";
+
+        String result = ReOrganizeString.reorganizeString(str);
+        System.out.print(result);
+    }
+
+    @Test
+    public void StringCompressLeet() {
+
+        char[] str = new char[]{'a','b','b','b','b','b','b','b','b','b','b','b','b'};
+
+        int result = StringCompressLeetCode.compress(str);
+        System.out.print(result);
+    }
+
 }

@@ -8,6 +8,7 @@ public class DijkstraShortestPath {
 
     public HashMap<GraphNode, GraphNode> computeShortestPath(GraphNode startNode, List<GraphNode> nodes) {
         PriorityQueue<GraphNode> minHeap = new PriorityQueue<>(new GraphComparator());
+
         HashMap<GraphNode, Integer> distance = new HashMap<>();
         HashMap<GraphNode, GraphNode> path = new HashMap<>();
 
@@ -30,6 +31,7 @@ public class DijkstraShortestPath {
             for (Edge edge : current.edges) {
                 GraphNode adjacent = edge.adjacentVertex;
 
+                // cycle detection
                 if (!minHeap.contains(adjacent))
                     continue;
 

@@ -55,7 +55,7 @@ public class SubsetSum {
 
         for (int i = 1; i < nums.length; i++) {
             for (int j = 1; j <= sum; j++) {
-                if (dp[i - 1][sum]) {
+                if (dp[i - 1][j]) {
                     dp[i][j] = true;
                 } else {
                     if (j >= nums[i])

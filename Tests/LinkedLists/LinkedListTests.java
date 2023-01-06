@@ -226,4 +226,17 @@ public class LinkedListTests {
         //Assert.assertArrayEquals(new Integer[]{4, 3, 2, 1}, node.GetData(node));
 
     }
+
+    @Test
+    public void RemoveNthNode() {
+        var head = new LinkedListNode<>(1);
+        head.next = new LinkedListNode<>(2);
+        head.next.next = new LinkedListNode<>(3);
+        head.next.next.next = new LinkedListNode<>(4);
+        head.next.next.next.next = new LinkedListNode<>(5);
+
+        LinkedListNode<Integer> list = RemoveNthNode.removeNthFromEnd(head, 2);
+       System.out.println();
+       // Assert.assertEquals(4, index);
+    }
 }
